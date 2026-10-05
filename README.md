@@ -79,7 +79,7 @@ npm run build          # tsc server + vite build
 npm run lint           # eslint src tests
 ```
 
-Current status: typecheck clean, 49 tests passing, 13 property cases passing
+Current status: typecheck clean, 65 tests passing, 13 property cases passing
 (the 8 required PROP-1..8 plus 5 extra PROP-9..13), build and lint clean.
 
 ## Registration flows
