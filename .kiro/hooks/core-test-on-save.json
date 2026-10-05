@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Core tests on save",
+      "trigger": "PostFileSave",
+      "description": "After the agent saves a src/core/*.ts file, run the related unit tests and property-based tests (no auto-fix, no recursive edits).",
+      "matcher": "src/core/.*\\.ts$",
+      "action": {
+        "type": "command",
+        "command": "npm test -- --run tests/unit tests/property",
+        "timeout": 120
+      }
+    }
+  ]
+}

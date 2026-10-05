@@ -1,0 +1,41 @@
+{
+  "name": "recipe-shelf-mcp",
+  "version": "1.0.0",
+  "description": "Recipe Shelf MCP — locally-run recipe registration and AI search via MCP",
+  "type": "module",
+  "engines": {
+    "node": "^22.12.0 || >=24.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:server\" \"npm run dev:mcp\"",
+    "dev:web": "vite",
+    "dev:server": "RECIPES_DATA_FILE=data/recipes.local.json node --import tsx/esm src/server/index.ts",
+    "dev:mcp": "RECIPES_DATA_FILE=data/recipes.local.json node --import tsx/esm src/mcp/recipeMcpServer.ts",
+    "build": "tsc -p tsconfig.server.json && vite build",
+    "test": "vitest run",
+    "test:property": "vitest run tests/property",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "lint": "eslint src tests --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "8.71.1",
+    "@typescript-eslint/parser": "8.71.1",
+    "@vitejs/plugin-react": "^5.2.0",
+    "concurrently": "^9.1.0",
+    "eslint": "8.57.1",
+    "fast-check": "^3.23.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^7.3.6",
+    "vitest": "^5.0.3"
+  }
+}

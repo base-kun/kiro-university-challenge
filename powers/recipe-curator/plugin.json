@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "recipe-curator",
+  "version": "0.1.0",
+  "description": "Reusable procedure for organizing recipe information read from an image, then registering and searching it through the existing Recipe Shelf MCP tools (create_recipe / search_recipes). Text only; does not store images.",
+  "author": {
+    "name": "base-kun"
+  },
+  "keywords": [
+    "recipe",
+    "レシピ",
+    "curate",
+    "create_recipe",
+    "search_recipes",
+    "drink pairing",
+    "献立"
+  ],
+  "license": "MIT"
+}

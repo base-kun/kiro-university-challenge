@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Local data; publish only the sample
+data/*
+!data/recipes.json
+
+# Runtime write-queue backups and temp files (never committed)
+data/*.backup-*
+data/*.tmp
+
+# Uploaded images (git-ignored; only .gitkeep is tracked)
+uploads/*
+!uploads/.gitkeep
+
+# Environment variables / secrets
+.env
+.env.*
+
+# macOS
+.DS_Store
+# Machine-specific MCP backup; publish .kiro/settings/mcp.json
+.kiro/settings/mcp.local.json
+
+# Old example/template files
+*.example
+*.example.*
+
+# Local submission drafts
+/docs/submission/

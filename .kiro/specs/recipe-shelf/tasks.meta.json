@@ -1,0 +1,44 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Project scaffold and configuration": [
+      {
+        "executionId": "257740e9-449e-48fa-aac0-03c012c8da9c",
+        "chatSessionId": "sess_597e8aa6-3687-4995-8892-2d45edcb0481",
+        "timestamp": 1791204376014
+      },
+      {
+        "executionId": "8c2dd046-9afa-4b9c-8674-ed35c0b137e8",
+        "chatSessionId": "sess_e11dd51f-5515-455f-8a5d-d1e29456ddfd",
+        "timestamp": 1791205281598
+      },
+      {
+        "executionId": "9ce58c8f-2b6f-4897-83ae-81aabeb12a86",
+        "chatSessionId": "sess_9d0ecf51-ac8d-4959-9bab-640b74968996",
+        "timestamp": 1791205310081
+      },
+      {
+        "executionId": "bb0d2d59-274b-445e-a936-6091ee7daadf",
+        "chatSessionId": "sess_7556b2de-212c-4dcc-ab32-52d006d303f3",
+        "timestamp": 1791205383512
+      },
+      {
+        "executionId": "bb0d2d59-274b-445e-a936-6091ee7daadf",
+        "chatSessionId": "sess_7556b2de-212c-4dcc-ab32-52d006d303f3",
+        "timestamp": 1791205614261
+      }
+    ],
+    "28. Docs, evidence & demo update (text-only flow) — PARTIAL: README, CHALLENGE, evidence, demo-script (silent/≤2:30), social-post, form-responses created & example data text-only. Remaining: capture IDE evidence (Hook fire, PBT, agent, Power import) + confirm official form names/URLs.": [
+      {
+        "executionId": "d3fa0e2b-d930-4b6f-8ac1-27cd1ba338e6",
+        "chatSessionId": "sess_c67a4526-faf7-4f9a-aecd-3cc254292399",
+        "timestamp": 1791220562952
+      },
+      {
+        "executionId": "d3fa0e2b-d930-4b6f-8ac1-27cd1ba338e6",
+        "chatSessionId": "sess_c67a4526-faf7-4f9a-aecd-3cc254292399",
+        "timestamp": 1791221136807
+      }
+    ]
+  }
+}

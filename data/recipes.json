@@ -1,0 +1,16 @@
+[
+  {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "title": "牛肉のシラーズ煮込み（サンプル）",
+    "category": "主菜",
+    "ingredients": ["牛肉", "玉ねぎ", "にんじん", "にんにく"],
+    "cookingMinutes": 90,
+    "difficulty": "medium",
+    "cuisineTags": ["洋食"],
+    "flavorTags": ["濃厚"],
+    "drinkPairings": ["シラーズ", "赤ワイン"],
+    "textureTags": ["やわらかい"],
+    "notes": "じっくり煮込むことでお肉がとろとろになります。",
+    "createdAt": "2026-10-05T00:00:00.000Z"
+  }
+]
