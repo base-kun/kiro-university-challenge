@@ -107,7 +107,7 @@ Phase H (final, migrates the above to text-only):
   - Implement all 8 properties: PROP-1 through PROP-8
   - Use `fc.record`, `fc.array`, `fc.integer`, `fc.constantFrom`, `fc.string` arbitraries to generate recipe pools and search params
   - **Verification**: `npm run test:property` passes; all 8 properties confirmed
-  - **Note**: After implementation, use Kiro IDE Spec Correctness / Property-based testing feature to generate or run tests; record evidence in `docs/kiro-university-evidence.md`
+  - **Note**: After implementation, use Kiro IDE Spec Correctness / Property-based testing feature to generate or run tests; record evidence in `CHALLENGE.md`
   - **Requirements**: PROP-1–PROP-8, REQ-8.2, REQ-8.2a, REQ-8.2b
 
 - [x] 6. Persistence layer
@@ -216,38 +216,37 @@ Phase H (final, migrates the above to text-only):
     - Command: `npm run test -- --run tests/unit`
     - On failure: output is surfaced to Kiro
   - Save a `src/core/` file from within Kiro to confirm the hook fires and test results appear
-  - **Verification**: Hook fires; test output visible in Kiro; record evidence in `docs/kiro-university-evidence.md`
+  - **Verification**: Hook fires; test output visible in Kiro; record evidence in `CHALLENGE.md`
   - **Requirements**: Lesson 3
 
-- [x] 16. Custom agent — recipe-quality-reviewer (Lesson 7) — DONE: agent created (read-only + verify-commands, no write/commit) and **run via the agent picker**; no critical findings; one minor fix (#7 backup glob) applied; findings in docs/reviews/recipe-quality-review.md
+- [x] 16. Custom agent — recipe-quality-reviewer (Lesson 7) — DONE: agent created (read-only + verify-commands, no write/commit) and **run via the agent picker**; no critical findings; one minor fix (#7 backup glob) applied; outcome summarized in `CHALLENGE.md` (detailed review draft kept locally, not published)
   - Create `.kiro/agents/recipe-quality-reviewer.md` with:
     - Role (final text-only direction): review requirements-vs-implementation alignment; search logic correctness and preserved Properties; **JSON input validation** at the API and MCP (shared Zod schema, unknown-field policy); **MCP `create_recipe` registration path** (write-via-API, no direct data-file write, finite timeout); **user-confirmation flow** (content approval and tool-run approval are separate; `create_recipe` not auto-approved); **concurrent-write persistence** (single writer + serialized queue, no lost updates, queue recovers after a failed write); **secrets & real-data hygiene** (no secrets in source/config, `data/recipes.local.json` and real images never committed); README accuracy; Lesson 1–7 evidence completeness
     - Explicitly: the app handles no images — there is no image upload/validation surface to review
     - Tools: read files, run shell commands (typecheck, test, test:property, build, git status)
     - Scope: minimal — only files listed in the agent definition
   - Execute the agent against the completed project
-  - Record all findings and fix/accept/defer decisions in `docs/reviews/recipe-quality-review.md`
+  - Summarize findings and fix/accept/defer decisions in `CHALLENGE.md` (detailed draft kept locally, not published)
   - **Depends on**: the final implementation and Lesson artifacts must exist first — Tasks 20–28 (text-only migration, API, Web, MCP `create_recipe`, tests, docs), Task 13 (live demo), Task 14 (Steering), Task 15 (Hook), Task 17 (Powers). Run Task 16 only after these are complete.
   - **Verification**: Agent ran against the final text-only implementation; findings recorded with fixed/accepted/deferred decisions; no unresolved critical findings
   - **Requirements**: REQ-9.5.1–9.5.4, Lesson 7
 
 - [x] 17. Powers usage (Lesson 5)
   - Check available Powers in Kiro IDE
-  - If Postman Power available: install and use it to validate all API endpoints; export Collection to `docs/postman/recipe-shelf.postman_collection.json`
-  - If not available: select alternative Power, document reason, use it in a development task, save artifact
-  - Record Power name, reason, actions taken, and result in `docs/kiro-university-evidence.md`
-  - **Verification**: Artifact exists; evidence recorded
-  - **Verification done**: markdownlint Power selected (Postman not needed for text-only MVP) and actually run (`lint_markdown`, `get_configuration`); recorded in `docs/reviews/markdownlint-power-review.md` and `docs/kiro-university-evidence.md` (Lesson 5).
+  - Select and actually use at least one Power in a development or validation task, save any artifact
+  - Record Power name, reason, actions taken, and result in `CHALLENGE.md`
+  - **Verification**: Power actually used; usage recorded
+  - **Verification done**: custom `recipe-curator` Power packaged under `powers/recipe-curator/` and used in Kiro; markdownlint Power actually run (`lint_markdown`, `get_configuration`); recorded in `CHALLENGE.md` (Lesson 5).
   - **Requirements**: REQ-9.4.1–9.4.4, Lesson 5
 
 - [x] 18. Documentation and submission artifacts
-  - Create `README.md` with: overview, architecture diagram, prerequisites, install, dev start, MCP registration, test/typecheck/build commands, Lesson 1–7 table, link to evidence doc, known constraints
-  - Create `docs/kiro-university-evidence.md` — Lesson 1–7 table with file paths, operations, verification results
-  - Create `docs/submission/form-responses.md` — English answers for Challenge application form
-  - Create `docs/submission/social-post.md` — X/LinkedIn post draft with placeholders
-  - Create `docs/submission/demo-script.md` — 3-minute English/Japanese demo script. The drink-pairing segment shall follow the flow "retrieve candidates by structured conditions via `search_recipes` → Kiro judges drink affinity from the returned recipes", explicitly showing that Kiro separates registered facts from its own inference and that recipes without registered drink pairings are still considered (REQ-5.3.1–5.3.5)
-  - **Verification**: All files exist; README enables cold-start setup; evidence file references real artifacts; demo script reflects the "条件検索で候補取得 → Kiroが相性を判断" flow
-  - **Verification done**: Created `README.md`, `CHALLENGE.md`, `docs/kiro-university-evidence.md`, `docs/submission/{demo-script,social-post,form-responses}.md`. Official form Lesson/Bonus names + repo/video URLs marked 要確認. Demo script 30s–3min. Shared 2–3 sentence blurb reused in social-post + form-responses.
+  - Create `README.md` with: overview, architecture diagram, prerequisites, install, dev start, MCP registration, test/typecheck/build commands, link to the Lesson summary, known constraints
+  - Create `CHALLENGE.md` — Lesson 1–7 table with file paths, operations, verification results
+  - Create `docs/submission/form-responses.md` — English answers for Challenge application form (local-only, git-ignored)
+  - Create `docs/submission/social-post.md` — X/LinkedIn post draft with placeholders (local-only, git-ignored)
+  - Create `docs/submission/demo-script.md` — 3-minute English/Japanese demo script (local-only, git-ignored). The drink-pairing segment shall follow the flow "retrieve candidates by structured conditions via `search_recipes` → Kiro judges drink affinity from the returned recipes", explicitly showing that Kiro separates registered facts from its own inference and that recipes without registered drink pairings are still considered (REQ-5.3.1–5.3.5)
+  - **Verification**: README enables cold-start setup; `CHALLENGE.md` references real artifacts; demo script reflects the "条件検索で候補取得 → Kiroが相性を判断" flow
+  - **Verification done**: Created `README.md`, `CHALLENGE.md`, and `docs/submission/{demo-script,social-post,form-responses}.md` (submission drafts are local-only / git-ignored). Demo script 30s–3min. Shared 2–3 sentence blurb reused in social-post + form-responses.
   - **Requirements**: REQ-9.2.1–9.2.3, REQ-5.3.1–5.3.5, Lesson 1–7 evidence
 
 - [ ] 19. Final audit (run last)
@@ -352,10 +351,10 @@ Phase H (final, migrates the above to text-only):
   - **Verification**: `npm test` passes (unit, property, API, integration); `npm run test:property` passes; `npm run typecheck` exits 0; `npm run build` succeeds; `npm run lint` passes
   - **Requirements**: REQ-8.1, REQ-8.2, REQ-8.3, REQ-8.3a, REQ-8.3b, REQ-8.3c, REQ-8.4, REQ-3.1.9, REQ-3.2.2, REQ-3.3.1
 
-- [x] 28. Docs, evidence & demo update (text-only flow) — PARTIAL: README, CHALLENGE, evidence, demo-script (silent/≤2:30), social-post, form-responses created & example data text-only. Remaining: capture IDE evidence (Hook fire, PBT, agent, Power import) + confirm official form names/URLs.
+- [x] 28. Docs & demo update (text-only flow) — DONE: `README.md`, `CHALLENGE.md`, and the local-only `docs/submission/{demo-script,social-post,form-responses}.md` updated to the text-only flow; `data/recipes.json` sample is text-only. Video recording, public posting, and the application-form submission are separate activities, not part of this task.
   - Update `README.md`: text-only registration, no image handling, MCP registration with `RECIPE_API_BASE_URL`, `create_recipe` auto-approve disabled, Web list reload behavior; remove image/upload instructions
-  - Update `docs/kiro-university-evidence.md` and `data/recipes.json` to drop image fields (keep example valid; non-destructive to runtime data)
-  - Update `docs/submission/demo-script.md` to the final flow: attach image to Kiro → LLM extracts attributes → asks about unclear items → proposes drink affinity with reasons (registered vs. inferred, cite sources) → user confirms → `create_recipe` registers → appears in Web list (reload) → `search_recipes` finds it → LLM explains affinity, including a candidate with no drink tag
+  - Update `CHALLENGE.md` and `data/recipes.json` to drop image fields (keep example valid; non-destructive to runtime data)
+  - Update `docs/submission/demo-script.md` (local-only, git-ignored) to the final flow: attach image to Kiro → LLM extracts attributes → asks about unclear items → proposes drink affinity with reasons (registered vs. inferred, cite sources) → user confirms → `create_recipe` registers → appears in Web list (reload) → `search_recipes` finds it → LLM explains affinity, including a candidate with no drink tag
   - **Depends on**: Tasks 23, 24, 25, 27
   - **Verification**: Docs match the implemented text-only behavior; demo script matches the final flow; `data/recipes.json` validates against the new schema
   - **Requirements**: REQ-9.2.1–9.2.4, REQ-9.3.2
@@ -370,7 +369,7 @@ Phase H (final, migrates the above to text-only):
 - **Two distinct approvals:** (1) the user approving the proposed recipe content, and (2) Kiro's permission prompt to execute the `create_recipe` tool. `create_recipe` is never in `autoApprove` (REQ-6.2.3).
 - **Data safety:** ignoring unknown/legacy fields on read (REQ-3.3.1) is separate from preserving the original files; the migration never deletes existing recipes or existing real images, and takes a backup before rewriting `data/recipes.local.json` (REQ-3.3.2).
 - Web list refresh is reload-only; no polling or SSE (REQ-4.5).
-- Task 5 (property-based tests) must be run through Kiro IDE's Spec Correctness / Property-based testing feature to count as Lesson 4 evidence. Record the Kiro-generated output in `docs/kiro-university-evidence.md`.
+- Task 5 (property-based tests) must be run through Kiro IDE's Spec Correctness / Property-based testing feature to count as Lesson 4 evidence. Record the Kiro-generated output in `CHALLENGE.md`.
 - Never mark a task complete without running its stated verification command (for the migration unit, the gate is Task 24).
 - Do not add features or files not listed in these tasks without updating requirements.md first.
 - **Historical record:** Tasks 1–12 document the earlier image-based MVP. Their completion is retained for history but does NOT satisfy the final text-only direction; Phase H (Tasks 20–28) tracks the remaining work.

@@ -26,12 +26,15 @@ Kiro Webの「Recipe Shelf MCP 提出前レビュー」セッションで、同�
 クラウドからレビューしました。Spec・Steering・Hooks・MCP・Agent、APIの
 loopback待受け・Host/Origin制限、保存先、公開サンプルと秘密情報を確認しました。
 ローカルIDEは開発とレシピ登録・検索、クラウドは独立した提出前レビューを担当します。
-クラウドのテスト合格件数はここでは記載しません。
+クラウドでは`npm ci`がレジストリ403で完了せず、クラウド側のテスト・buildは未検証です。
+検証済みの結果はローカルでの全65テスト合格（[Verification](#verification)参照）です。
 
 The Kiro Web cloud session reviewed the same repository's Kiro configuration,
 API safeguards, persistence path, public sample, and secret handling. The local
 IDE handled development and recipe registration/search; the cloud provided an
-independent pre-submission review. Cloud test pass counts are not listed here.
+independent pre-submission review. In the cloud, `npm ci` did not complete (registry
+403), so cloud-side tests and build are unverified; the verified result is the
+65 local tests passing (see [Verification](#verification)).
 
 ### Packaged Kiro Power
 

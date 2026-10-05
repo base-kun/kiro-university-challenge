@@ -35,7 +35,6 @@ resources:
   - "file://.kiro/steering/project-standards.md"
   - "file://README.md"
   - "file://CHALLENGE.md"
-  - "file://docs/kiro-university-evidence.md"
 ---
 
 # recipe-quality-reviewer
@@ -76,9 +75,9 @@ your permissions (`npm run typecheck`, `npm test`, `npm run test:property`,
    overwritten; a backup is taken before rewrite.
 6. **Secrets & real-data hygiene.** No secrets/real data/images in source,
    config, or docs. `data/recipes.local.json` and backups are git-ignored. MCP config
-   carries only a non-secret API base URL. Note that `.kiro/settings/mcp.json`
-   contains machine-specific absolute paths and should not be published as-is.
-7. **README / CHALLENGE / evidence accuracy.** Claims match reality; items that
+   carries only a non-secret API base URL. `.kiro/settings/mcp.json` launches the
+   server with a repository-relative path (no machine-specific absolute paths).
+7. **README / CHALLENGE accuracy.** Claims match reality; items that
    depend on manual IDE confirmation (Hook fire, Kiro PBT feature, MCP live use)
    are marked unverified, not claimed as done.
 

@@ -127,19 +127,15 @@ never leaves the Kiro chat and is not stored by the application.
 │   └── integration/
 │       └── registerFlow.test.ts
 ├── data/
-│   ├── recipes.json
-│   └── recipes.json          ← runtime only, git-ignored
+│   ├── recipes.json          ← public sample data (tracked)
+│   └── recipes.local.json    ← real runtime data, git-ignored
 │   (no uploads/ — the system does not handle images)
 ├── docs/
-│   ├── kiro-university-evidence.md
-│   ├── postman/
-│   │   └── recipe-shelf.postman_collection.json
-│   ├── reviews/
-│   │   └── recipe-quality-review.md
-│   └── submission/
+│   └── submission/           ← local-only drafts, git-ignored (not published)
 │       ├── demo-script.md
 │       ├── social-post.md
 │       └── form-responses.md
+├── CHALLENGE.md              ← Lesson 1–7 summary + deliverable list
 ├── .gitignore
 ├── .nvmrc
 ├── package.json
@@ -590,7 +586,7 @@ Both extend a shared base and use `"strict": true`.
 | 2 — Steering | Project standards steering file | `.kiro/steering/project-standards.md` |
 | 3 — Hooks | PostFileSave hook on `src/core/**/*.ts` runs `vitest run tests/unit` | `.kiro/hooks/core-test-on-save.json` |
 | 4 — PBT | `fast-check` property tests; generated/run via Kiro Spec Correctness | `tests/property/searchRecipes.property.test.ts` |
-| 5 — Powers | Postman Power (if available) used to validate API; Collection saved | `docs/postman/recipe-shelf.postman_collection.json` |
+| 5 — Powers | Custom `recipe-curator` Power + markdownlint Power used | `powers/recipe-curator/`, see `CHALLENGE.md` |
 | 6 — MCP | `search_recipes` tool; registered in Kiro Workspace MCP settings | `src/mcp/recipeMcpServer.ts` |
 | 7 — Custom Agent | `recipe-quality-reviewer` agent; executed and results recorded | `.kiro/agents/recipe-quality-reviewer.md` |
 

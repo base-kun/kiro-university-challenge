@@ -211,7 +211,7 @@ Recipe Shelf MCPは、ユーザーがレシピをテキスト属性として登�
 - **REQ-8.1**: The system shall include unit tests for the core search logic.
 - **REQ-8.2**: The system shall include property-based tests that verify PROP-1 through PROP-8.
 - **REQ-8.2a**: Property-based tests shall be generated or executed through Kiro IDE's Property-based testing or Spec Correctness functionality where that feature is available.
-- **REQ-8.2b**: Evidence of the Kiro IDE property-based test generation or execution (e.g., generated test file path, run output) shall be recorded in `docs/kiro-university-evidence.md`.
+- **REQ-8.2b**: Evidence of the Kiro IDE property-based test generation or execution (e.g., generated test file path, run output) shall be recorded in `CHALLENGE.md`.
 - **REQ-8.3**: The system shall include API-level tests for the text-only recipe registration (JSON) and retrieval endpoints, including validation errors (missing title, invalid category/difficulty, non-positive cooking time).
 - **REQ-8.3a**: The system shall include an integration test covering the end-to-end path: MCP `create_recipe` (persist via API, text only) → recipe appears in `GET /api/recipes` (Web list) → `search_recipes` finds it.
 - **REQ-8.3b**: The system shall include a test asserting that concurrent registrations are all persisted with no lost updates (REQ-3.1.8).
@@ -240,8 +240,8 @@ Recipe Shelf MCPは、ユーザーがレシピをテキスト属性として登�
 
 - **REQ-9.2.1**: The README shall include setup, local startup, MCP registration instructions (including that `create_recipe` auto-approval is disabled), the Web list refresh method for MCP-added recipes, and a Lesson 1–7 summary table.
 - **REQ-9.2.2**: A new developer shall be able to reproduce local startup and MCP connection using only the README.
-- **REQ-9.2.3**: The repository shall include `docs/kiro-university-evidence.md` documenting Lesson 1–7 with actual file paths and execution results.
-- **REQ-9.2.4**: The demo material (`docs/submission/demo-script.md`) shall present the flow: attach image to Kiro → LLM extracts attributes → user confirms → `create_recipe` registers → recipe appears in the Web list → `search_recipes` finds it → LLM explains drink affinity (distinguishing registered facts from inference).
+- **REQ-9.2.3**: The repository shall include `CHALLENGE.md` documenting Lesson 1–7 with actual file paths and execution results.
+- **REQ-9.2.4**: The demo material (`docs/submission/demo-script.md`, a local-only draft that is intentionally git-ignored) shall present the flow: attach image to Kiro → LLM extracts attributes → user confirms → `create_recipe` registers → recipe appears in the Web list → `search_recipes` finds it → LLM explains drink affinity (distinguishing registered facts from inference).
 
 ### 9.3 Git管理
 
@@ -254,9 +254,9 @@ Recipe Shelf MCPは、ユーザーがレシピをテキスト属性として登�
 
 ### 9.4 Lesson 5: Powers
 
-- **REQ-9.4.1**: When Postman Power is available in Kiro IDE, it shall be used to validate the API (not merely installed).
-- **REQ-9.4.2**: The API validation result (e.g., Postman Collection JSON) shall be saved under `docs/postman/recipe-shelf.postman_collection.json`.
-- **REQ-9.4.3**: When Postman Power is not available, an alternative Power related to React, TypeScript, Node.js, or API validation shall be selected, and the reason for selection shall be documented in `docs/kiro-university-evidence.md`.
+- **REQ-9.4.1**: At least one Kiro Power shall be actively used (not merely installed), with the usage recorded.
+- **REQ-9.4.2**: A custom `recipe-curator` Power shall be packaged under `powers/recipe-curator/` and used in Kiro.
+- **REQ-9.4.3**: The markdownlint Power shall be run against the Markdown docs, and the Power usage shall be documented in `CHALLENGE.md`.
 - **REQ-9.4.4**: In all cases, the selected Power shall be actively used in a development or validation task, and the result or artifact shall be recorded.
 
 ### 9.5 Lesson 7: Custom Agent
@@ -264,7 +264,7 @@ Recipe Shelf MCPは、ユーザーがレシピをテキスト属性として登�
 - **REQ-9.5.1**: The custom agent `recipe-quality-reviewer` shall be created in `.kiro/agents/`.
 - **REQ-9.5.2**: The agent shall be executed against the completed project.
 - **REQ-9.5.3**: Each finding from the agent execution shall be recorded with a decision: fixed, accepted with rationale, or deferred.
-- **REQ-9.5.4**: The execution result, findings, and resolutions shall be saved to `docs/reviews/recipe-quality-review.md`.
+- **REQ-9.5.4**: The agent execution, findings, and resolutions shall be summarized in `CHALLENGE.md` (the detailed review draft is kept locally and is not published).
 
 ---
 
@@ -276,9 +276,9 @@ Recipe Shelf MCPは、ユーザーがレシピをテキスト属性として登�
 | 2 | Steering documents | `.kiro/steering/` のSteering files |
 | 3 | Hooks | `.kiro/hooks/` のHook（core/*.ts保存時にテスト実行） |
 | 4 | Property-based testing | PROP-1〜PROP-8, REQ-8.2 |
-| 5 | Powers | 利用可能なPowerの実際の使用（Postman Power優先）。APIバリデーション結果を `docs/postman/` または `docs/kiro-university-evidence.md` に記録 |
+| 5 | Powers | 自作`recipe-curator` Power + markdownlint Powerの実際の使用。記録は `CHALLENGE.md` |
 | 6 | Model Context Protocol | REQ-6.1.1〜6.4.7（`search_recipes` + `create_recipe`） |
-| 7 | Custom agents | `recipe-quality-reviewer` Agent — 実行・指摘記録・修正まで完了。結果は `docs/reviews/recipe-quality-review.md` に保存 |
+| 7 | Custom agents | `recipe-quality-reviewer` Agent — 実行・指摘記録・修正まで完了。結果は `CHALLENGE.md` に要約 |
 
 ---
 
